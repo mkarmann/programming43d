@@ -1,0 +1,2 @@
+mlagents==0.30.0
+torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116
