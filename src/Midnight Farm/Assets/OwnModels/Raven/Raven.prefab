@@ -936,8 +936,13 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 1000
+  MaxStep: 5000
   raven: {fileID: 4580601671071936983}
+  currentGoalClosestDistance: 0
+  nextPointAtTime: 0
+  accumulatedDistanceReward: 0
+  accumulatedStayReward: 0
+  accumulatedReward: 0
 --- !u!114 &4580601671050686606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -951,7 +956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 21
+    VectorObservationSize: 24
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 12
@@ -960,9 +965,9 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 1f72edc46f37cbe4cae74a143cd61f6d, type: 3}
+  m_Model: {fileID: 0}
   m_InferenceDevice: 0
-  m_BehaviorType: 2
+  m_BehaviorType: 0
   m_BehaviorName: FlyInAir
   TeamId: 0
   m_UseChildSensors: 1

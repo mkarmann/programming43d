@@ -50,11 +50,12 @@ public class Raven : MonoBehaviour
         leftWingDragRigidBody.drag = leftPushbackStrength * 20f;
         rightWingDragRigidBody.drag = rightPushbackStrength * 20f;
         
-        Vector3 leftPushback = -350 * leftWingDragRigidBody.velocity *leftPushbackStrength;
-        Vector3 rightPushback = -350 * rightWingDragRigidBody.velocity * rightPushbackStrength;
+        Vector3 leftPushback = -400 * leftWingDragRigidBody.velocity *leftPushbackStrength;
+        Vector3 rightPushback = -400 * rightWingDragRigidBody.velocity * rightPushbackStrength;
 
         baseBoneRigidBody.AddForceAtPosition(leftPushback, leftWingRigidBody.position);
         baseBoneRigidBody.AddForceAtPosition(rightPushback, rightWingRigidBody.position);
+        // baseBoneRigidBody.AddForce(0, 9.81f * baseBoneRigidBody.mass, 0); // Conteract gravity
 
         // baseBoneRigidBody.AddRelativeTorque(0, -20 * leftWingDragRigidBody.velocity.magnitude * leftPushbackStrength, 0);
         // baseBoneRigidBody.AddRelativeTorque(0, 20 * rightWingDragRigidBody.velocity.magnitude * rightPushbackStrength, 0);
