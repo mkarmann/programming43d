@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class TargetPointGizmo : MonoBehaviour
 {
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(transform.position, 0.1f);
+        Gizmos.DrawSphere(transform.position, 0.05f);
     }
     
 }
