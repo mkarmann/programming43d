@@ -144,7 +144,7 @@ public class FlyInAirAgent : Agent
             float deltaDistance = currentGoalClosestDistance - distanceToTarget;
             Vector2 posToTarget2d = new Vector2(posToTarget.x, posToTarget.z);
             float distance2d = posToTarget2d.magnitude;
-            Vector2 birdForward2d = new Vector2(-raven.baseBoneRigidBody.transform.forward.x, -raven.baseBoneRigidBody.transform.forward.z);
+            Vector2 birdForward2d = new Vector2(raven.baseBoneRigidBody.transform.up.x, raven.baseBoneRigidBody.transform.up.z);
             float scaleDirectional = Mathf.Min(1, distance2d);
             float orientationBasedScale = scaleDirectional * Mathf.Max(0f, Vector2.Dot(birdForward2d, posToTarget2d.normalized)) + (1 - scaleDirectional);
             distanceReward = maxRewardForTravelToPoint * deltaDistance * orientationBasedScale / nextPointSpawnDistance;
