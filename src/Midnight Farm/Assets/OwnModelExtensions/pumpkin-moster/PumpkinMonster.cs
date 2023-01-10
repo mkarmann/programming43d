@@ -13,9 +13,19 @@ public class PumpkinMonster : MonoBehaviour
         head.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.tag == "Pumpkin")
+        {
+            head.gameObject.SetActive(true);
+            Destroy(other.gameObject);
+
+            // Kill all the birds
+            Raven[] ravens = (Raven[])FindObjectsOfType(typeof(Raven));
+            foreach (Raven r in ravens)
+            {
+                r.die();
+            }
+        }
     }
 }
