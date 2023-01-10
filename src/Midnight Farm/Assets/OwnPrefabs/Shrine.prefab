@@ -2918,7 +2918,6 @@ GameObject:
   - component: {fileID: 1852047417231028976}
   - component: {fileID: 805813904982750591}
   - component: {fileID: 5164147511218734820}
-  - component: {fileID: 5164147511218734823}
   m_Layer: 0
   m_Name: Shrine
   m_TagString: Untagged
@@ -2985,19 +2984,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: 0.94, z: 0}
---- !u!114 &5164147511218734823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916957693017643139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4ac1f2f26ecc1a41a8e84506dd06eca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toSpawn: {fileID: 0}
 --- !u!1 &916957693048514216
 GameObject:
   m_ObjectHideFlags: 0
