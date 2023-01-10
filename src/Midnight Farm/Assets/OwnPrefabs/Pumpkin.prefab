@@ -1875,7 +1875,111 @@ Animator:
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: 
+  m_WarningMessage: '
+
+    Transform ''Character1_LeftFoot'' has been deleted
+
+    Transform
+    ''Character1_LeftLeg'' has been deleted
+
+    Transform ''Character1_LeftUpLeg''
+    has been deleted
+
+    Transform ''Character1_RightFoot'' has been deleted
+
+    Transform
+    ''Character1_RightLeg'' has been deleted
+
+    Transform ''Character1_RightUpLeg''
+    has been deleted
+
+    Transform ''Character1_LeftHandIndex3'' has been deleted
+
+    Transform
+    ''Character1_LeftHandIndex2'' has been deleted
+
+    Transform ''Character1_LeftHandIndex1''
+    has been deleted
+
+    Transform ''Character1_LeftHandMiddle3'' has been deleted
+
+    Transform
+    ''Character1_LeftHandMiddle2'' has been deleted
+
+    Transform ''Character1_LeftHandMiddle1''
+    has been deleted
+
+    Transform ''Character1_LeftHandRing3'' has been deleted
+
+    Transform
+    ''Character1_LeftHandRing2'' has been deleted
+
+    Transform ''Character1_LeftHandRing1''
+    has been deleted
+
+    Transform ''Character1_LeftHand'' has been deleted
+
+    Transform
+    ''Character1_LeftForeArm'' has been deleted
+
+    Transform ''Character1_LeftArm''
+    has been deleted
+
+    Transform ''Character1_LeftShoulder'' has been deleted
+
+    Transform
+    ''Character1_Head'' has been deleted
+
+    Transform ''Character1_Neck'' has been
+    deleted
+
+    Transform ''Character1_RightHandIndex3'' has been deleted
+
+    Transform
+    ''Character1_RightHandIndex2'' has been deleted
+
+    Transform ''Character1_RightHandIndex1''
+    has been deleted
+
+    Transform ''Character1_RightHandMiddle3'' has been deleted
+
+    Transform
+    ''Character1_RightHandMiddle2'' has been deleted
+
+    Transform ''Character1_RightHandMiddle1''
+    has been deleted
+
+    Transform ''Character1_RightHandRing3'' has been deleted
+
+    Transform
+    ''Character1_RightHandRing2'' has been deleted
+
+    Transform ''Character1_RightHandRing1''
+    has been deleted
+
+    Transform ''Character1_RightHand'' has been deleted
+
+    Transform
+    ''Character1_RightForeArm'' has been deleted
+
+    Transform ''Character1_RightArm''
+    has been deleted
+
+    Transform ''Character1_RightShoulder'' has been deleted
+
+    Transform
+    ''Character1_Spine2'' has been deleted
+
+    Transform ''Character1_Spine1'' has
+    been deleted
+
+    Transform ''Character1_Spine'' has been deleted
+
+    Transform
+    ''Character1_Hips'' has been deleted
+
+    Transform ''Character1_Reference''
+    has been deleted'
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -2214,6 +2318,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4386196099927860753}
+  - {fileID: 5345602709616764475}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2273,3 +2378,86 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   physicsCollider: {fileID: 8077282181959889847}
   retrivalSpeed: 40
+--- !u!1 &8679120833193464083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5345602709616764475}
+  - component: {fileID: 8284532412633050579}
+  - component: {fileID: 3496822458418757162}
+  m_Layer: 0
+  m_Name: Sphere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5345602709616764475
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8679120833193464083}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.1238, z: 0}
+  m_LocalScale: {x: 0.07811689, y: 0.039109323, z: 0.089394346}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8077282181959889864}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &8284532412633050579
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8679120833193464083}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &3496822458418757162
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8679120833193464083}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 257
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: c50d5a868339f4948882c480166108f4, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
