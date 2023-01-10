@@ -1875,111 +1875,7 @@ Animator:
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: '
-
-    Transform ''Character1_LeftFoot'' has been deleted
-
-    Transform
-    ''Character1_LeftLeg'' has been deleted
-
-    Transform ''Character1_LeftUpLeg''
-    has been deleted
-
-    Transform ''Character1_RightFoot'' has been deleted
-
-    Transform
-    ''Character1_RightLeg'' has been deleted
-
-    Transform ''Character1_RightUpLeg''
-    has been deleted
-
-    Transform ''Character1_LeftHandIndex3'' has been deleted
-
-    Transform
-    ''Character1_LeftHandIndex2'' has been deleted
-
-    Transform ''Character1_LeftHandIndex1''
-    has been deleted
-
-    Transform ''Character1_LeftHandMiddle3'' has been deleted
-
-    Transform
-    ''Character1_LeftHandMiddle2'' has been deleted
-
-    Transform ''Character1_LeftHandMiddle1''
-    has been deleted
-
-    Transform ''Character1_LeftHandRing3'' has been deleted
-
-    Transform
-    ''Character1_LeftHandRing2'' has been deleted
-
-    Transform ''Character1_LeftHandRing1''
-    has been deleted
-
-    Transform ''Character1_LeftHand'' has been deleted
-
-    Transform
-    ''Character1_LeftForeArm'' has been deleted
-
-    Transform ''Character1_LeftArm''
-    has been deleted
-
-    Transform ''Character1_LeftShoulder'' has been deleted
-
-    Transform
-    ''Character1_Head'' has been deleted
-
-    Transform ''Character1_Neck'' has been
-    deleted
-
-    Transform ''Character1_RightHandIndex3'' has been deleted
-
-    Transform
-    ''Character1_RightHandIndex2'' has been deleted
-
-    Transform ''Character1_RightHandIndex1''
-    has been deleted
-
-    Transform ''Character1_RightHandMiddle3'' has been deleted
-
-    Transform
-    ''Character1_RightHandMiddle2'' has been deleted
-
-    Transform ''Character1_RightHandMiddle1''
-    has been deleted
-
-    Transform ''Character1_RightHandRing3'' has been deleted
-
-    Transform
-    ''Character1_RightHandRing2'' has been deleted
-
-    Transform ''Character1_RightHandRing1''
-    has been deleted
-
-    Transform ''Character1_RightHand'' has been deleted
-
-    Transform
-    ''Character1_RightForeArm'' has been deleted
-
-    Transform ''Character1_RightArm''
-    has been deleted
-
-    Transform ''Character1_RightShoulder'' has been deleted
-
-    Transform
-    ''Character1_Spine2'' has been deleted
-
-    Transform ''Character1_Spine1'' has
-    been deleted
-
-    Transform ''Character1_Spine'' has been deleted
-
-    Transform
-    ''Character1_Hips'' has been deleted
-
-    Transform ''Character1_Reference''
-    has been deleted'
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -2300,7 +2196,7 @@ GameObject:
   - component: {fileID: 2784878705070835287}
   m_Layer: 0
   m_Name: Pumpkin
-  m_TagString: Untagged
+  m_TagString: Pumpkin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

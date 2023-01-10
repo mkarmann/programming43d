@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 8179047253214001068}
   - component: {fileID: 4198607502203043345}
   - component: {fileID: 4198607502203043346}
+  - component: {fileID: 2474632101629839279}
   - component: {fileID: 4198607502203043344}
   m_Layer: 0
   m_Name: WingLeft3
@@ -96,6 +97,19 @@ CapsuleCollider:
   m_Height: 0.015
   m_Direction: 0
   m_Center: {x: 0.008, y: 0, z: 0.002}
+--- !u!114 &2474632101629839279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135190594407397154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9715035580c24ef4aad025f3ad5a87f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raven: {fileID: 4198607501647905604}
 --- !u!144 &4198607502203043344
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -410,6 +424,7 @@ GameObject:
   - component: {fileID: 6214915944720913308}
   - component: {fileID: 4198607502098356503}
   - component: {fileID: 4198607502098356584}
+  - component: {fileID: 1303473461348436117}
   - component: {fileID: 4198607502098356502}
   m_Layer: 0
   m_Name: WingRight2
@@ -465,6 +480,19 @@ CapsuleCollider:
   m_Height: 0.015
   m_Direction: 0
   m_Center: {x: -0.008, y: 0, z: 0.001}
+--- !u!114 &1303473461348436117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677338156299991253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9715035580c24ef4aad025f3ad5a87f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raven: {fileID: 4198607501647905604}
 --- !u!144 &4198607502098356502
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -1232,6 +1260,7 @@ GameObject:
   - component: {fileID: 6340942134016573891}
   - component: {fileID: 4198607502637865159}
   - component: {fileID: 4198607502637865176}
+  - component: {fileID: 8775206854904174509}
   - component: {fileID: 4198607502637865177}
   m_Layer: 0
   m_Name: Head
@@ -1286,6 +1315,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.004
   m_Center: {x: 0, y: 0.003, z: 0}
+--- !u!114 &8775206854904174509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4315043366420820672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9715035580c24ef4aad025f3ad5a87f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raven: {fileID: 4198607501647905604}
 --- !u!144 &4198607502637865177
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -1375,6 +1417,7 @@ GameObject:
   - component: {fileID: 3440834560442441467}
   - component: {fileID: 4198607502014225965}
   - component: {fileID: 4198607502014225966}
+  - component: {fileID: 2341330872410426496}
   - component: {fileID: 4198607502014225964}
   m_Layer: 0
   m_Name: WingLeft2
@@ -1430,6 +1473,19 @@ CapsuleCollider:
   m_Height: 0.015
   m_Direction: 0
   m_Center: {x: 0.008, y: 0.001, z: 0.002}
+--- !u!114 &2341330872410426496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4981526327732867504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9715035580c24ef4aad025f3ad5a87f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raven: {fileID: 4198607501647905604}
 --- !u!144 &4198607502014225964
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -1518,6 +1574,7 @@ GameObject:
   - component: {fileID: 7590342968361154690}
   - component: {fileID: 4198607502787502091}
   - component: {fileID: 4198607502787502092}
+  - component: {fileID: 7376111563611847255}
   - component: {fileID: 4198607502787502090}
   m_Layer: 0
   m_Name: WingRight1
@@ -1573,6 +1630,19 @@ CapsuleCollider:
   m_Height: 0.015
   m_Direction: 0
   m_Center: {x: -0.006, y: 0.003, z: 0.002}
+--- !u!114 &7376111563611847255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5261000019079680332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9715035580c24ef4aad025f3ad5a87f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raven: {fileID: 4198607501647905604}
 --- !u!144 &4198607502787502090
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -1630,6 +1700,7 @@ GameObject:
   - component: {fileID: 3410863838676714114}
   - component: {fileID: 4198607502021450823}
   - component: {fileID: 4198607502021450840}
+  - component: {fileID: 3584850205902485860}
   - component: {fileID: 4198607502021450822}
   m_Layer: 0
   m_Name: WingLeft1
@@ -1685,6 +1756,19 @@ CapsuleCollider:
   m_Height: 0.015
   m_Direction: 0
   m_Center: {x: 0.006, y: 0.004, z: 0.002}
+--- !u!114 &3584850205902485860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5830573630007549290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9715035580c24ef4aad025f3ad5a87f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raven: {fileID: 4198607501647905604}
 --- !u!144 &4198607502021450822
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -2063,6 +2147,7 @@ GameObject:
   - component: {fileID: 6997025552187004763}
   - component: {fileID: 4198607502417370984}
   - component: {fileID: 4198607502417370985}
+  - component: {fileID: 6755000325907087523}
   m_Layer: 0
   m_Name: Bone
   m_TagString: Untagged
@@ -2119,6 +2204,19 @@ CapsuleCollider:
   m_Height: 0.02
   m_Direction: 1
   m_Center: {x: 0, y: 0.0066, z: 0}
+--- !u!114 &6755000325907087523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7318864859538411239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9715035580c24ef4aad025f3ad5a87f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raven: {fileID: 4198607501647905604}
 --- !u!1 &7376538120275894608
 GameObject:
   m_ObjectHideFlags: 0
@@ -2288,6 +2386,7 @@ GameObject:
   - component: {fileID: 3741475750872589611}
   - component: {fileID: 4198607501570822082}
   - component: {fileID: 4198607501570822083}
+  - component: {fileID: 4073810237106654504}
   - component: {fileID: 4198607501570822081}
   m_Layer: 0
   m_Name: WingRight3
@@ -2342,6 +2441,19 @@ CapsuleCollider:
   m_Height: 0.015
   m_Direction: 0
   m_Center: {x: -0.008, y: 0, z: 0.002}
+--- !u!114 &4073810237106654504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8106382042990953169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9715035580c24ef4aad025f3ad5a87f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raven: {fileID: 4198607501647905604}
 --- !u!144 &4198607501570822081
 CharacterJoint:
   m_ObjectHideFlags: 0
