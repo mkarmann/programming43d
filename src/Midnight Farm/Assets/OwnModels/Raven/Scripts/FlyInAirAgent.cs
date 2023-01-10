@@ -16,6 +16,8 @@ public class FlyInAirAgent : Agent
     [SerializeField] private float nextPointAtTime = 0f;
     private float stayAtPointTime = 5f;
     private float nextPointSpawnDistance = 5f;
+    private float nextPointMinDistance = 3f;
+    private float nextPointMaxDistance = 20f;
 
     private float maxRewardForStayAtPoint = 2f;
     private float maxRewardForTravelToPoint = 1f;
@@ -23,7 +25,8 @@ public class FlyInAirAgent : Agent
     [SerializeField] private float accumulatedDistanceReward = 0f;
     [SerializeField] private float accumulatedStayReward = 0f;
     [SerializeField] private float accumulatedReward = 0f;
-    
+
+    [SerializeField] private bool isInference = true;
 
     public int CollectStateRecursive(Transform t, int objIdx = 0)
     {
@@ -69,14 +72,16 @@ public class FlyInAirAgent : Agent
 
     public override void OnEpisodeBegin()
     {
-        // Reset pose somehow
-        ResetStateRecursive(raven.baseBoneRigidBody.transform);
-        raven.targetTransform.position = raven.baseBoneRigidBody.transform.position + Vector3.up * nextPointSpawnDistance;
-        currentGoalClosestDistance = nextPointSpawnDistance;
-        nextPointAtTime = Time.time + 9999;
-        accumulatedDistanceReward = 0;
-        accumulatedStayReward = 0;
-        accumulatedReward = 0;
+        if (!isInference)
+        {
+            // Reset pose somehow
+            ResetStateRecursive(raven.baseBoneRigidBody.transform);
+            raven.targetTransform.position = raven.baseBoneRigidBody.transform.position;
+            accumulatedDistanceReward = 0;
+            accumulatedStayReward = 0;
+            accumulatedReward = 0;
+            setRandomGoal();
+        }
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -129,8 +134,30 @@ public class FlyInAirAgent : Agent
         // Debug.Log(continuousActions[0]);
     }
 
+    private void setRandomGoal()
+    {
+        nextPointAtTime = Time.time + 9999;
+        do
+        {
+            currentGoalClosestDistance = Random.Range(nextPointMinDistance, nextPointMaxDistance);
+            Vector3 newPoint = raven.targetTransform.position + Random.onUnitSphere * currentGoalClosestDistance;
+            if (newPoint.y < 2.5)
+            {
+                continue;
+            }
+            raven.targetTransform.position = newPoint;
+        } while (false);
+        Debug.Log("New point!");
+    }
+
     private void Update()
     {
+        // Do nothing if we are in inference
+        if (isInference)
+        {
+            return;
+        }
+
         // ******************
         // Reward Caclulation
         // ******************
@@ -146,7 +173,7 @@ public class FlyInAirAgent : Agent
             float distance2d = posToTarget2d.magnitude;
             Vector2 birdForward2d = new Vector2(raven.baseBoneRigidBody.transform.up.x, raven.baseBoneRigidBody.transform.up.z);
             float scaleDirectional = Mathf.Min(1, distance2d);
-            float orientationBasedScale = scaleDirectional * Mathf.Max(0f, Vector2.Dot(birdForward2d, posToTarget2d.normalized)) + (1 - scaleDirectional);
+            float orientationBasedScale = scaleDirectional * Mathf.Max(0f, Vector2.Dot(birdForward2d.normalized, posToTarget2d.normalized)) + (1 - scaleDirectional);
             distanceReward = maxRewardForTravelToPoint * deltaDistance * orientationBasedScale / nextPointSpawnDistance;
         }
 
@@ -179,18 +206,7 @@ public class FlyInAirAgent : Agent
         // Move goal to new point
         if (nextPointAtTime < Time.time)
         {
-            nextPointAtTime = Time.time + 9999;
-            currentGoalClosestDistance = nextPointSpawnDistance;
-            do
-            {
-                Vector3 newPoint = raven.targetTransform.position + Random.onUnitSphere * nextPointSpawnDistance;
-                if (newPoint.y < 2)
-                {
-                    continue;
-                }
-                raven.targetTransform.position = newPoint;
-            } while (false);
-            Debug.Log("New point!");
+            setRandomGoal();
         }
 
         // Kill bird if it falls to low

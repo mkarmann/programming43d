@@ -943,6 +943,7 @@ MonoBehaviour:
   accumulatedDistanceReward: 0
   accumulatedStayReward: 0
   accumulatedReward: 0
+  isInference: 1
 --- !u!114 &4580601671050686606
 MonoBehaviour:
   m_ObjectHideFlags: 0
