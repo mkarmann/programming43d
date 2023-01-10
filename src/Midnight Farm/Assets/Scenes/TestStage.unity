@@ -415,6 +415,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa607b5031f248645840fc0f1c22b1e7, type: 3}
+--- !u!1 &405197746 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5409681756642024853, guid: e65dc1fb041b95940b5c898013aef36f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1864372295}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &405197749
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405197746}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.1
+  m_Center: {x: 0, y: 0.94, z: 0}
+--- !u!114 &405197750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405197746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4ac1f2f26ecc1a41a8e84506dd06eca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toSpawn: {fileID: 0}
+  triggerCollider: {fileID: 0}
 --- !u!1001 &489090023
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -425,7 +458,7 @@ PrefabInstance:
     - target: {fileID: 9132999070107742603, guid: f017900c844efe1499ce92e6bc285dfa,
         type: 3}
       propertyPath: m_Name
-      value: PlayerCapsule
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 9132999070107742613, guid: f017900c844efe1499ce92e6bc285dfa,
         type: 3}
