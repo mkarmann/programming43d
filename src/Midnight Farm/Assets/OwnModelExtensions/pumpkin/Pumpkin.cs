@@ -82,7 +82,7 @@ public class Pumpkin : MonoBehaviour
         inHand = false;
         physicsCollider.enabled = true;
         transform.parent = null;
-        transform.position = grabberTransform.position + grabberTransform.forward * 2f;
+        transform.position = grabberTransform.position + grabberTransform.forward * 1.5f;
         Rigidbody rigidbody = transform.GetComponent<Rigidbody>();
         rigidbody.isKinematic = false;
         rigidbody.AddForce(grabberTransform.forward * 400f + Vector3.up * 100f);

@@ -48,17 +48,20 @@ public class Raven : MonoBehaviour
 
     private void FixedUpdate()
     {
+        float currentWingJointStrength = wingJointStrength;
+        float currentWingJointStrength2 = wingJointStrength2;
         if (isDying)
         {
             // Strength of bird is fading
-            wingJointStrength = 0;
-            wingJointStrength2 = 0;
+            float factorTilDead = (Time.time - dyingSince) / constTimeUntilDeath;
+            currentWingJointStrength = 0.4f * factorTilDead * wingJointStrength;
+            currentWingJointStrength2 = 0.4f * factorTilDead * wingJointStrength2;
         }
 
-        leftWingRigidBody.AddRelativeTorque(wingLeftTorque * wingJointStrength);
-        rightWingRigidBody.AddRelativeTorque(wingRightTorque * wingJointStrength);
-        leftWingRigidBody2.AddRelativeTorque(wingLeftTorque2 * wingJointStrength2);
-        rightWingRigidBody2.AddRelativeTorque(wingRightTorque2 * wingJointStrength2);
+        leftWingRigidBody.AddRelativeTorque(wingLeftTorque * currentWingJointStrength);
+        rightWingRigidBody.AddRelativeTorque(wingRightTorque * currentWingJointStrength);
+        leftWingRigidBody2.AddRelativeTorque(wingLeftTorque2 * currentWingJointStrength2);
+        rightWingRigidBody2.AddRelativeTorque(wingRightTorque2 * currentWingJointStrength2);
 
         // Update the flying
         float leftPushbackStrength = Vector3.Dot(leftWingDragRigidBody.velocity.normalized, -leftWingDragRigidBody.transform.forward);
@@ -79,6 +82,7 @@ public class Raven : MonoBehaviour
 
         baseBoneRigidBody.AddForceAtPosition(leftPushback, leftWingRigidBody.position);
         baseBoneRigidBody.AddForceAtPosition(rightPushback, rightWingRigidBody.position);
+        
         // baseBoneRigidBody.AddForce(0, 9.81f * baseBoneRigidBody.mass, 0); // Conteract gravity
 
         // baseBoneRigidBody.AddRelativeTorque(0, -20 * leftWingDragRigidBody.velocity.magnitude * leftPushbackStrength, 0);
@@ -103,6 +107,8 @@ public class Raven : MonoBehaviour
 
         isDying = true;
         dyingSince = Time.time;
+        baseBoneRigidBody.useGravity = true;
         return true;
+        
     }
 }
