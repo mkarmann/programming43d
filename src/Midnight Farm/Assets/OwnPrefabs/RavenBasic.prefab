@@ -884,12 +884,17 @@ MonoBehaviour:
   rightWingRigidBody2: {fileID: 4198607502098356503}
   leftWingDragRigidBody: {fileID: 4198607502014225965}
   rightWingDragRigidBody: {fileID: 4198607502098356503}
+  birdGameObject: {fileID: 3980602062959795155}
   wingJointStrength: 30
   wingJointStrength2: 10
   wingLeftTorque: {x: 0, y: 0, z: 0}
   wingRightTorque: {x: 0, y: 0, z: 0}
   wingLeftTorque2: {x: 0, y: 0, z: 0}
   wingRightTorque2: {x: 0, y: 0, z: 0}
+  aggressionTriggerDistance: 6
+  aggressionActionSmaller: 0.7
+  isAggressive: 0
+  isAttention: 0
 --- !u!1 &3980602062959795155
 GameObject:
   m_ObjectHideFlags: 0

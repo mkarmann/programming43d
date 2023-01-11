@@ -14,6 +14,7 @@ public class Raven : MonoBehaviour
     [SerializeField] public Rigidbody rightWingRigidBody2;
     [SerializeField] public Rigidbody leftWingDragRigidBody;
     [SerializeField] public Rigidbody rightWingDragRigidBody;
+    [SerializeField] private GameObject birdGameObject;
 
     [SerializeField] private float wingJointStrength = 30f;
     [SerializeField] private float wingJointStrength2 = 5f;
@@ -28,10 +29,12 @@ public class Raven : MonoBehaviour
     public Vector3 wingRightTorque2 = Vector3.zero;
 
     public float aggressionTriggerDistance = 5f;
-    public float aggressionActionSmaller = 0.5f;
+    public float aggressionActionSmaller = 0.75f;
     public bool isAggressive = false;
+    public bool isAttention = false;
 
     private Transform player = null;
+    private Material material;
 
     public bool getIsDying()
     {
@@ -47,6 +50,8 @@ public class Raven : MonoBehaviour
         {
             player = objs[0].transform;
         }
+
+        material = birdGameObject.GetComponent<SkinnedMeshRenderer>().materials[0];
     }
 
     private void Update()
@@ -59,8 +64,32 @@ public class Raven : MonoBehaviour
         if (!isDying && player != null)
         {
             Vector3 delta = player.transform.position - baseBoneRigidBody.position;
+
+            if (!isAggressive)
+            {
+                if (delta.magnitude > aggressionTriggerDistance)
+                {
+                    if (isAttention)
+                    {
+                        // Set to no attention
+                        material.SetVector("_GlowColor", new Vector4(0, 0, 0, 0));
+                        isAttention = false;
+                    }
+                }
+                else
+                {
+                    if (!isAttention)
+                    {
+                        // Set attention
+                        material.SetVector("_GlowColor", new Vector4(2, 2, 2, 0));
+                        isAttention = true;
+                    }
+                }
+            }
+
             if (!isAggressive && delta.magnitude < aggressionTriggerDistance * aggressionActionSmaller)
             {
+                material.SetVector("_GlowColor", new Vector4(10, 0, 0, 0));
                 isAggressive = true;
             }
             
@@ -125,10 +154,11 @@ public class Raven : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (!isDying)
+        if (!isDying && !isAggressive)
         {
-            Gizmos.color = isAggressive ? Color.red : Color.grey;
+            Gizmos.color = Color.grey;
             Gizmos.DrawWireSphere(baseBoneRigidBody.position, aggressionTriggerDistance);
+            Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(baseBoneRigidBody.position, aggressionTriggerDistance * aggressionActionSmaller);
         }
     }
@@ -143,6 +173,7 @@ public class Raven : MonoBehaviour
         isDying = true;
         dyingSince = Time.time;
         baseBoneRigidBody.useGravity = true;
+        material.SetFloat("_Alpha", 0);
         return true;
         
     }
