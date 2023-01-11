@@ -15,12 +15,6 @@ public class Pumpkin : MonoBehaviour
     [SerializeField] private Collider physicsCollider = null;
     [SerializeField] private float retrivalSpeed = 40f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

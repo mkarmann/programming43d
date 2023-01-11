@@ -34,10 +34,6 @@ namespace StarterAssets
         /// See Assets/Editor/PackageChecker/PackageChecker.cs for more information
         /// </summary>
         [MenuItem(MenuRoot + "/Reinstall Dependencies", false)]
-        static void ResetPackageChecker()
-        {
-            PackageChecker.RemovePackageCheckerScriptingDefine();
-        }
 
 #if STARTER_ASSETS_PACKAGES_CHECKED
         private static void CheckCameras(Transform targetParent, string prefabFolder)

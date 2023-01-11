@@ -6,6 +6,10 @@ public class PumpkinMonster : MonoBehaviour
 {
     // Start is called before the first frame update
 
+
+    [SerializeField] private Light light;
+    private float timeSinceReconstructed = 999999;
+
     private Transform head;
     void Start()
     {
@@ -26,6 +30,8 @@ public class PumpkinMonster : MonoBehaviour
             {
                 r.die();
             }
+
+            light.enabled = true;
         }
     }
 }
