@@ -21,6 +21,17 @@ namespace StarterAssets
 		[Tooltip("Acceleration and deceleration")]
 		public float SpeedChangeRate = 10.0f;
 
+		// Exposed audio variables
+		[Header("Audio")]
+		[Tooltip("An array of footstep sounds. One gets randonly selected to play")]
+		[SerializeField] private AudioClip[] footstepSounds;
+		[Tooltip("Effects the gap between footstep sounds. Smaller number = smaller gap")]
+		[Min(1.0f)][SerializeField] private float stepRate = 1.0f;
+
+		// Private audio variables
+		private float _nextStep = 0.0f;
+		private AudioSource _audioSource;
+
 		[Space(10)]
 		[Tooltip("The height the player can jump")]
 		public float JumpHeight = 1.2f;
@@ -108,6 +119,7 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
+			_audioSource = GetComponent<AudioSource>();
 		}
 
 		private void Update()
@@ -196,6 +208,32 @@ namespace StarterAssets
 
 			// move the player
 			_controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+
+			// play footset audio
+			PlayFootStepAudio();
+		}
+
+		private void PlayFootStepAudio()
+		{
+			// Debug.Log("Next " + _nextStep);
+			if (Grounded && _speed > 0.1f && Time.time > _nextStep)
+			{
+				// Debug.Log("Time " + Time.time);
+				float offset = _speed;
+				if (_speed >= stepRate)
+				{
+					offset = (stepRate / _speed);
+				}
+				_nextStep = Time.time + offset;
+				// pick & play a random footstep sound from the array,
+				// excluding sound at index 0
+				int n = Random.Range(1, footstepSounds.Length);
+				_audioSource.clip = footstepSounds[n];
+				_audioSource.PlayOneShot(_audioSource.clip);
+				// move picked sound to index 0 so it's not picked next time
+				footstepSounds[n] = footstepSounds[0];
+				footstepSounds[0] = _audioSource.clip;
+			}
 		}
 
 		private void JumpAndGravity()

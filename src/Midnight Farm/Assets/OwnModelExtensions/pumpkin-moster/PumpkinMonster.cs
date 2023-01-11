@@ -8,6 +8,8 @@ public class PumpkinMonster : MonoBehaviour
 
 
     [SerializeField] private Light light;
+    [SerializeField] private AudioSource backgroundAmbient = null;
+    [SerializeField] private AudioSource onFinishSound = null;
     private float timeSinceReconstructed = 999999;
 
     private Transform head;
@@ -32,6 +34,12 @@ public class PumpkinMonster : MonoBehaviour
             }
 
             light.enabled = true;
+            if (backgroundAmbient != null)
+            {
+                backgroundAmbient.Stop();
+            }
+            
+            onFinishSound.Play();
         }
     }
 }
