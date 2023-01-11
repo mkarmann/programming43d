@@ -2706,7 +2706,6 @@ GameObject:
   - component: {fileID: 2754323947423518108}
   - component: {fileID: 4198607502167468804}
   - component: {fileID: 4198607502167468805}
-  - component: {fileID: 4696377607722315040}
   m_Layer: 0
   m_Name: Neck
   m_TagString: Untagged
@@ -2792,19 +2791,6 @@ CharacterJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!135 &4696377607722315040
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9004321054649678694}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9014558739991727534
 GameObject:
   m_ObjectHideFlags: 0
