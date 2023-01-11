@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RavenCollisionHandler : MonoBehaviour
 {
@@ -20,6 +21,11 @@ public class RavenCollisionHandler : MonoBehaviour
                 rb.AddForce(delta * 200f);
                 raven.baseBoneRigidBody.AddForce(delta * -5000);
             }
+        }
+        if (collision.collider.tag == "Player")
+        {
+            // Sadly does not work
+            // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }

@@ -6,6 +6,7 @@ public class Shrine : MonoBehaviour
 {
 
     [SerializeField] private GameObject toSpawn;
+    [SerializeField] private AudioSource audioSource;
 
     private bool spawned = false;
 
@@ -27,6 +28,7 @@ public class Shrine : MonoBehaviour
         {
             Instantiate(toSpawn, transform.position + Vector3.up * 1.5f, Quaternion.identity);
             spawned = true;
+            audioSource.Play();
             Debug.Log("Pumpkin Spawned!");
         }
     }

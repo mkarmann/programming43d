@@ -929,7 +929,7 @@ PrefabInstance:
     - target: {fileID: 9132999070107742613, guid: f017900c844efe1499ce92e6bc285dfa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.38
+      value: 8.27
       objectReference: {fileID: 0}
     - target: {fileID: 9132999070107742613, guid: f017900c844efe1499ce92e6bc285dfa,
         type: 3}
@@ -939,7 +939,7 @@ PrefabInstance:
     - target: {fileID: 9132999070107742613, guid: f017900c844efe1499ce92e6bc285dfa,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 33.65
+      value: -22.62
       objectReference: {fileID: 0}
     - target: {fileID: 9132999070107742613, guid: f017900c844efe1499ce92e6bc285dfa,
         type: 3}
@@ -1173,7 +1173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7351363878d5aab4a9ce60f124d9f89a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 63943309}
   delayPercent: 1
   maxDelay: 9999
   overwriteSpatialBlend: 0.9
@@ -21373,7 +21373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7351363878d5aab4a9ce60f124d9f89a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 981831404}
   delayPercent: 1
   maxDelay: 9999
   overwriteSpatialBlend: 0.9

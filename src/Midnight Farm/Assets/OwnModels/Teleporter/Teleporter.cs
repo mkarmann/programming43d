@@ -8,6 +8,7 @@ public class Teleporter : MonoBehaviour
 
     [SerializeField] private Transform targetTransform;
     [SerializeField] private SphereCollider collider;
+    [SerializeField] private AudioSource audioSource;
 
     private FirstPersonController controller;
     private float teleportStartTime = 0;
@@ -33,6 +34,7 @@ public class Teleporter : MonoBehaviour
             other.gameObject.transform.position = targetTransform.position;
             other.gameObject.transform.rotation = targetTransform.rotation;
             teleportStartTime = Time.time;
+            audioSource.Play();
             Debug.Log("Teleported player!");
         }
     }

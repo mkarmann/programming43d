@@ -74,6 +74,7 @@ namespace StarterAssets
 		// timeout deltatime
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
+		private bool playedJumpAudioForCurrentJump = false;
 
 	
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
@@ -138,7 +139,13 @@ namespace StarterAssets
 		{
 			// set sphere position, with offset
 			Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
+			bool groundedBefore = Grounded;
 			Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
+			if (!groundedBefore && Grounded)
+            {
+				ActuallyPlayTheFootStepAudio();
+				playedJumpAudioForCurrentJump = false;
+			}
 		}
 
 		private void CameraRotation()
@@ -227,13 +234,18 @@ namespace StarterAssets
 				_nextStep = Time.time + offset;
 				// pick & play a random footstep sound from the array,
 				// excluding sound at index 0
-				int n = Random.Range(1, footstepSounds.Length);
-				_audioSource.clip = footstepSounds[n];
-				_audioSource.PlayOneShot(_audioSource.clip);
-				// move picked sound to index 0 so it's not picked next time
-				footstepSounds[n] = footstepSounds[0];
-				footstepSounds[0] = _audioSource.clip;
+				ActuallyPlayTheFootStepAudio();
 			}
+		}
+
+		private void ActuallyPlayTheFootStepAudio()
+        {
+			int n = Random.Range(1, footstepSounds.Length);
+			_audioSource.clip = footstepSounds[n];
+			_audioSource.PlayOneShot(_audioSource.clip);
+			// move picked sound to index 0 so it's not picked next time
+			footstepSounds[n] = footstepSounds[0];
+			footstepSounds[0] = _audioSource.clip;
 		}
 
 		private void JumpAndGravity()
@@ -254,6 +266,13 @@ namespace StarterAssets
 				{
 					// the square root of H * -2 * G = how much velocity needed to reach desired height
 					_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+					if (!playedJumpAudioForCurrentJump)
+                    {
+						ActuallyPlayTheFootStepAudio();
+						playedJumpAudioForCurrentJump = true;
+
+					}
+					
 				}
 
 				// jump timeout

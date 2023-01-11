@@ -37,6 +37,13 @@ public class Raven : MonoBehaviour
     private Material materialEye;
     private Material materialBody;
 
+    [SerializeField] private AudioClip ravenDyingAudio;
+    [SerializeField] private AudioClip[] ravenScreaming;
+    private AudioClip thisRavensVoice;
+    private AudioSource audioSource;
+    private float nextScreamCountdown = 0;
+    
+
     public bool getIsDying()
     {
         return isDying;
@@ -54,6 +61,13 @@ public class Raven : MonoBehaviour
 
         materialEye = birdGameObject.GetComponent<SkinnedMeshRenderer>().materials[0];
         materialBody = birdGameObject.GetComponent<SkinnedMeshRenderer>().materials[1];
+        audioSource = GetComponent<AudioSource>();
+        int n = Random.Range(1, ravenScreaming.Length);
+
+        // Set the ravens voice
+        thisRavensVoice = ravenScreaming[n];
+        audioSource.pitch = Random.Range(0.8f, 1.2f);
+        nextScreamCountdown = Random.Range(1f, 5f);
     }
 
     private void Update()
@@ -74,8 +88,10 @@ public class Raven : MonoBehaviour
         {
             Vector3 delta = player.transform.position - baseBoneRigidBody.position;
 
+            // Do aggression check
             if (!isAggressive)
             {
+
                 if (delta.magnitude > aggressionTriggerDistance)
                 {
                     if (isAttention)
@@ -100,11 +116,34 @@ public class Raven : MonoBehaviour
             {
                 materialEye.SetVector("_GlowColor", new Vector4(10, 0, 0, 0));
                 isAggressive = true;
+                audioSource.volume = 1f;
+                nextScreamCountdown = 0f;
             }
             
             if (isAggressive)
             {
                 targetTransform.position = player.transform.position + Vector3.up * 1.7f;
+            }
+
+            
+            // Do screaming
+            if (isAggressive)
+            {
+                nextScreamCountdown -= Time.deltaTime * 10f;
+            }
+            else if (isAttention)
+            {
+                // be quiet (do not update)
+            }
+            else
+            {
+                nextScreamCountdown -= Time.deltaTime;
+            }
+
+            if (nextScreamCountdown < 0)
+            {
+                nextScreamCountdown = Random.Range(5f, 10f);
+                audioSource.PlayOneShot(thisRavensVoice);
             }
         }
     }
@@ -183,6 +222,9 @@ public class Raven : MonoBehaviour
         dyingSince = Time.time;
         baseBoneRigidBody.useGravity = true;
         materialEye.SetFloat("_Alpha", 0);
+        audioSource.clip = ravenDyingAudio;
+        audioSource.volume = 1f;
+        audioSource.PlayOneShot(ravenDyingAudio);
         return true;
         
     }
