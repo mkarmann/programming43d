@@ -27,6 +27,12 @@ public class Raven : MonoBehaviour
     public Vector3 wingLeftTorque2 = Vector3.zero;
     public Vector3 wingRightTorque2 = Vector3.zero;
 
+    public float aggressionTriggerDistance = 5f;
+    public float aggressionActionSmaller = 0.5f;
+    public bool isAggressive = false;
+
+    private Transform player = null;
+
     public bool getIsDying()
     {
         return isDying;
@@ -35,7 +41,12 @@ public class Raven : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        // Search for the player
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("Player");
+        if (objs.Length > 0)
+        {
+            player = objs[0].transform;
+        }
     }
 
     private void Update()
@@ -43,6 +54,20 @@ public class Raven : MonoBehaviour
         if (isDying && Time.time > dyingSince + constTimeUntilDeath)
         {
             Destroy(gameObject);
+        }
+
+        if (!isDying && player != null)
+        {
+            Vector3 delta = player.transform.position - baseBoneRigidBody.position;
+            if (!isAggressive && delta.magnitude < aggressionTriggerDistance * aggressionActionSmaller)
+            {
+                isAggressive = true;
+            }
+            
+            if (isAggressive)
+            {
+                targetTransform.position = player.transform.position + Vector3.up * 1.7f;
+            }
         }
     }
 
@@ -96,6 +121,16 @@ public class Raven : MonoBehaviour
 
         Gizmos.DrawRay(leftWingDragRigidBody.position, -leftWingDragRigidBody.transform.forward);
         Gizmos.DrawRay(rightWingDragRigidBody.position, -rightWingDragRigidBody.transform.forward);
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (!isDying)
+        {
+            Gizmos.color = isAggressive ? Color.red : Color.grey;
+            Gizmos.DrawWireSphere(baseBoneRigidBody.position, aggressionTriggerDistance);
+            Gizmos.DrawWireSphere(baseBoneRigidBody.position, aggressionTriggerDistance * aggressionActionSmaller);
+        }
     }
 
     public bool die()
