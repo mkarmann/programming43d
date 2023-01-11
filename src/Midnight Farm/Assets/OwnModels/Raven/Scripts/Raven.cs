@@ -34,7 +34,8 @@ public class Raven : MonoBehaviour
     public bool isAttention = false;
 
     private Transform player = null;
-    private Material material;
+    private Material materialEye;
+    private Material materialBody;
 
     public bool getIsDying()
     {
@@ -51,14 +52,22 @@ public class Raven : MonoBehaviour
             player = objs[0].transform;
         }
 
-        material = birdGameObject.GetComponent<SkinnedMeshRenderer>().materials[0];
+        materialEye = birdGameObject.GetComponent<SkinnedMeshRenderer>().materials[0];
+        materialBody = birdGameObject.GetComponent<SkinnedMeshRenderer>().materials[1];
     }
 
     private void Update()
     {
-        if (isDying && Time.time > dyingSince + constTimeUntilDeath)
+        if (isDying)
         {
-            Destroy(gameObject);
+            if (Time.time > dyingSince + constTimeUntilDeath)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                materialBody.SetFloat("_Burned", 0.4f + 0.6f * (Time.time - dyingSince) / constTimeUntilDeath);
+            }
         }
 
         if (!isDying && player != null)
@@ -72,7 +81,7 @@ public class Raven : MonoBehaviour
                     if (isAttention)
                     {
                         // Set to no attention
-                        material.SetVector("_GlowColor", new Vector4(0, 0, 0, 0));
+                        materialEye.SetVector("_GlowColor", new Vector4(0, 0, 0, 0));
                         isAttention = false;
                     }
                 }
@@ -81,7 +90,7 @@ public class Raven : MonoBehaviour
                     if (!isAttention)
                     {
                         // Set attention
-                        material.SetVector("_GlowColor", new Vector4(2, 2, 2, 0));
+                        materialEye.SetVector("_GlowColor", new Vector4(2, 2, 2, 0));
                         isAttention = true;
                     }
                 }
@@ -89,7 +98,7 @@ public class Raven : MonoBehaviour
 
             if (!isAggressive && delta.magnitude < aggressionTriggerDistance * aggressionActionSmaller)
             {
-                material.SetVector("_GlowColor", new Vector4(10, 0, 0, 0));
+                materialEye.SetVector("_GlowColor", new Vector4(10, 0, 0, 0));
                 isAggressive = true;
             }
             
@@ -173,7 +182,7 @@ public class Raven : MonoBehaviour
         isDying = true;
         dyingSince = Time.time;
         baseBoneRigidBody.useGravity = true;
-        material.SetFloat("_Alpha", 0);
+        materialEye.SetFloat("_Alpha", 0);
         return true;
         
     }
